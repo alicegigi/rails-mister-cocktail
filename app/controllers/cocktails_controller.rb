@@ -7,6 +7,8 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @cocktail = Cocktail.find(params[:id])
+    @ingredients = Ingredient.all
   end
 
   def new
@@ -15,8 +17,11 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.save
-    redirect_to cocktail_path(@cocktail)
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -32,9 +37,6 @@ class CocktailsController < ApplicationController
     redirect_to cocktails_path
   end
 
-
-
-
   private
   def cocktail_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
@@ -49,5 +51,4 @@ class CocktailsController < ApplicationController
   def find_cocktail
     @cocktail = Cocktail.find(params[:id])
   end
-
 end

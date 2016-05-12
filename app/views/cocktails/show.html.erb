@@ -1,10 +1,39 @@
+<div>
+  <h3> Cocktail: <% @cocktail.name %> </h3>
+  <ul class="list-unstyled">
+    <% @cocktail.doses.each do |dose| %>
+    <li><%= link_to dose.ingredient.name,  %>
+
+    </li>
+    <% end %>
+  </ul>
+
+  <
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2><%= @cocktail.name %></h2>
-      <%= @cocktail.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %></p>
-      <p><%= ingredient.dose %></p>
+      <%= @cocktail.ingredients.each do |dose| %>
+      <p><%= dose.ingredient.name %></p>
+      <p><%= dose.description %></p>
       <% end %>
       <div class="text-center">
         <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-primary" %>
