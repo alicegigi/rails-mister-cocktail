@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <%= render 'cocktails/cocktail_card', cocktail: @cocktail %>
+      <h2><%= @cocktail.name %></h2>
+      <%= @cocktail.ingredients.each do |ingredient| %>
+      <p><%= ingredient.name %></p>
+      <p><%= ingredient.dose %></p>
+      <% end %>
       <div class="text-center">
         <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-primary" %>
         <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>

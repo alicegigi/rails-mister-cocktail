@@ -1,11 +1,18 @@
-<h1 class="text-center">Delicious Cocktails</h1>
 
-<div class="contrainer">
+<div class="container" class="padded">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center">Yummy Cocktails</h1>
+      <%= link_to "Add a new Cocktail", new_cocktail_path%>
+    </div>
+  </div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <%= render "cocktail_card", cocktail: cocktail %>
+        <h3>
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </h3>
       </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
