@@ -1,0 +1,11 @@
+<h1 class="text-center">Delicious Cocktails</h1>
+
+<div class="contrainer">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "cocktail_card", cocktail: cocktail %>
+      </div>
+  </div>
+  <% end %>
+</div>
